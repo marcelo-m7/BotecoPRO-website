@@ -1,169 +1,205 @@
 {
-  "hero": {
-    "title": "Boteco Pro: A Solução Completa para Bares e Restaurantes",
-    "subtitle": "Gerencie seu negócio com praticidade e eficiência.",
-    "cta": "Experimente Grátis",
-    "demoCta": "Experimentar demo",
-    "demoCtaAria": "Experimentar demo do Boteco Pro (abre em nova aba)"
+  "seo": {
+    "title": "BotecoPro | Gestão para bares, restaurantes e atendimento integrado ao Odoo",
+    "description": "BotecoPro é a plataforma comercial da Monynha Softwares para bares e restaurantes com POS, stock, faturação, CRM e integração operacional com Odoo."
   },
-  "features": [
-    {
-      "title": "Menu Digital Omnicanal",
-      "description": "Atualize o cardápio em tempo real e ofereça experiências inclusivas em QR Code."
-    },
-    {
-      "title": "Compras Inteligentes",
-      "description": "Centralize fornecedores, contratos e entregas com alertas automáticos."
-    },
-    {
-      "title": "Fidelização e Insights",
-      "description": "Lance campanhas personalizadas e monitore resultados com dashboards completos."
-    }
-  ],
-  "solutions": {
-    "title": "Soluções conectadas para a sua operação",
-    "subtitle": "Combine menu digital, fornecedores, fidelidade, eventos e integrações em um único ecossistema.",
-    "items": [
+  "hero": {
+    "kicker": "Produto Monynha Softwares para food service",
+    "title": "Controle atendimento, stock, faturação e operação do seu bar num único fluxo.",
+    "subtitle": "O BotecoPro conecta salão, balcão, delivery e retaguarda para bares, restaurantes e operações de atendimento que querem vender mais com menos retrabalho.",
+    "cta": "Fale com um especialista",
+    "demoCta": "Ver demonstração",
+    "demoCtaAria": "Ver demonstração da operação BotecoPro",
+    "integrationLabel": "Integração central",
+    "integrationFallbackTitle": "Odoo pronto para evoluir com a sua operação",
+    "integrationFallbackDescription": "Mesmo quando o backend da integração ainda está em implantação, o website já está preparado com serviços, hooks e configuração por ambiente para a conexão com ERP.",
+    "highlights": [
+      "Reduza tempo de atendimento com pedidos organizados por canal e por turno.",
+      "Tenha stock e faturação alinhados com a operação real, sem depender de planilhas soltas.",
+      "Centralize indicadores comerciais e operacionais para decidir com mais velocidade."
+    ],
+    "metrics": [
       {
-        "title": "Menu Digital",
-        "description": "QR Code com fotos responsivas, traduções e sugestões automáticas de upsell.",
-        "href": "/menu-digital",
-        "ctaLabel": "Ver menu digital",
-        "badge": "QR Code"
+        "value": "-35%",
+        "label": "menos tempo perdido com retrabalho operacional"
       },
       {
-        "title": "Gestão de Fornecedores",
-        "description": "Cotações, contratos e entregas com trilha de auditoria e alertas preventivos.",
-        "href": "/fornecedores",
-        "ctaLabel": "Centralizar compras"
+        "value": "+18%",
+        "label": "potencial de aumento em ticket médio com upsell guiado"
       },
       {
-        "title": "Programa de Fidelidade",
-        "description": "Wallet digital, campanhas segmentadas e métricas de retenção em tempo real.",
-        "href": "/fidelidade",
-        "ctaLabel": "Engajar clientes"
-      },
-      {
-        "title": "Eventos e Experiências",
-        "description": "Checklists colaborativos, reservas integradas e relatórios pós-evento.",
-        "href": "/eventos",
-        "ctaLabel": "Planejar agenda"
-      },
-      {
-        "title": "Integrações Nativas",
-        "description": "Conectores para PDV, delivery, contabilidade e BI sem fricção.",
-        "href": "/integracoes",
-        "ctaLabel": "Explorar integrações"
+        "value": "1 painel",
+        "label": "para atendimento, backoffice e visão de gestão"
       }
     ]
   },
-  "howItWorks": {
-    "title": "Como Funciona",
+  "benefits": {
+    "title": "Benefícios pensados para quem vive a operação todos os dias",
+    "items": [
+      {
+        "title": "Atendimento mais rápido",
+        "description": "Organize filas, mesas, balcão e delivery com menos ruído entre equipa, cozinha e caixa."
+      },
+      {
+        "title": "Stock mais inteligente",
+        "description": "Acompanhe consumo, reposição e desperdício com dados acionáveis para compras e produção."
+      },
+      {
+        "title": "Gestão comercial unificada",
+        "description": "Conecte campanhas, fidelização, relatórios e faturação em uma mesma visão de negócio."
+      }
+    ]
+  },
+  "solutions": {
+    "title": "Módulos que resolvem dores reais do food service",
+    "subtitle": "Cada módulo do BotecoPro foi reposicionado para apoiar operação, gestão e crescimento — sem cara de template e com foco comercial claro.",
+    "items": [
+      {
+        "title": "Menu digital e pedidos",
+        "description": "Cardápio responsivo com QR Code, combos, destaques por turno e apoio a equipas de atendimento.",
+        "href": "/menu-digital",
+        "ctaLabel": "Ver módulo de menu",
+        "badge": "Frente de loja",
+        "bullets": [
+          "Atualização rápida de preços e disponibilidade.",
+          "Melhor experiência mobile para clientes e equipa.",
+          "Base pronta para campanhas e upsell."
+        ]
+      },
+      {
+        "title": "Compras e fornecedores",
+        "description": "Cotações, entradas, divergências e previsões de reposição num fluxo mais confiável para operação intensa.",
+        "href": "/fornecedores",
+        "ctaLabel": "Centralizar compras",
+        "badge": "Retaguarda",
+        "bullets": [
+          "Histórico de fornecedores e entregas.",
+          "Mais controlo sobre custos e ruptura.",
+          "Base de dados preparada para ERP."
+        ]
+      },
+      {
+        "title": "Fidelização e CRM",
+        "description": "Transforme atendimento recorrente em relacionamento com campanhas, cashback, segmentação e automações.",
+        "href": "/fidelidade",
+        "ctaLabel": "Explorar fidelização",
+        "badge": "Vendas",
+        "bullets": [
+          "Campanhas orientadas por comportamento.",
+          "Mais recorrência sem depender só de desconto.",
+          "Indicadores para equipas comercial e marketing."
+        ]
+      },
+      {
+        "title": "Eventos e operação especial",
+        "description": "Planeie reservas, ações sazonais, noites temáticas e picos operacionais com checklist e acompanhamento.",
+        "href": "/eventos",
+        "ctaLabel": "Organizar eventos",
+        "badge": "Operação",
+        "bullets": [
+          "Fluxos claros para equipa e fornecedores.",
+          "Mais previsibilidade em eventos e datas fortes.",
+          "Relatórios para pós-evento e margem."
+        ]
+      },
+      {
+        "title": "Integrações e dados",
+        "description": "Prepare a operação para integrar POS, delivery, ERP, BI e persistência de leads sem recomeçar do zero.",
+        "href": "/integracoes",
+        "ctaLabel": "Explorar integrações",
+        "badge": "Escalabilidade",
+        "bullets": [
+          "Camada de serviços e configuração por ambiente.",
+          "Fallback local seguro para desenvolvimento.",
+          "Estrutura pronta para Odoo e Supabase."
+        ]
+      }
+    ]
+  },
+  "odoo": {
+    "badge": "BotecoPro + Odoo",
+    "title": "A integração com Odoo passa a ser parte central da proposta comercial",
+    "description": "Unifique gestão de stock, faturação, POS e sincronização de dados com um fluxo pensado para operação real e expansão segura.",
+    "syncTitle": "Camada preparada para integração",
+    "syncFallback": "Conecte o website ao backend Odoo via .env quando a API estiver disponível.",
+    "items": [
+      {
+        "icon": "stock",
+        "title": "Gestão de stock",
+        "description": "Consumo por venda, fichas técnicas e reposição com visão mais confiável do que saiu, do que falta e do que deve ser comprado."
+      },
+      {
+        "icon": "billing",
+        "title": "Faturação",
+        "description": "Pedidos preparados para emissão fiscal e conciliação financeira, reduzindo retrabalho do caixa e do administrativo."
+      },
+      {
+        "icon": "sync",
+        "title": "POS e operação",
+        "description": "Atendimento presencial, balcão e delivery organizados com dados prontos para consolidar no ERP e acompanhar turnos."
+      },
+      {
+        "icon": "data",
+        "title": "Sincronização de dados",
+        "description": "Arquitetura preparada com hooks, serviços, mocks e fallback para evoluir sem bloquear o frontend enquanto o backend amadurece."
+      }
+    ]
+  },
+  "workflow": {
+    "title": "Como o BotecoPro entra na sua operação",
     "steps": [
       {
-        "title": "Cadastre seu Negócio",
-        "description": "Comece em poucos minutos, é simples e rápido."
+        "title": "Diagnóstico e desenho do fluxo",
+        "description": "Mapeamos atendimento, stock, faturação e integrações críticas para priorizar ganho operacional real."
       },
       {
-        "title": "Configure seu Cardápio",
-        "description": "Adicione seus produtos e preços facilmente."
+        "title": "Configuração por unidade e equipa",
+        "description": "Organizamos módulos, permissões, dados iniciais e indicadores para sua rotina diária."
       },
       {
-        "title": "Comece a Vender",
-        "description": "Atenda seus clientes com agilidade e eficiência."
-      }
-    ]
-  },
-  "plans": {
-    "title": "Nossos Planos",
-    "description": "Escolha o plano ideal para o seu negócio.",
-    "options": [
-      {
-        "name": "Básico",
-        "price": "R$ 99/mês",
-        "features": [
-          "Gestão de Mesas",
-          "Controle de Estoque Básico"
-        ]
-      },
-      {
-        "name": "Premium",
-        "price": "R$ 199/mês",
-        "features": [
-          "Todas as funcionalidades do Básico",
-          "Relatórios Avançados",
-          "Suporte Prioritário"
-        ]
-      }
-    ]
-  },
-  "platformCarousel": {
-    "title": "Veja o ecossistema Boteco Pro em ação",
-    "items": [
-      {
-        "title": "Integrações sem atritos",
-        "description": "Sincronize PDV, delivery e contabilidade com monitoramento em tempo real.",
-        "ctaLabel": "Conhecer integrações",
-        "href": "/integracoes"
-      },
-      {
-        "title": "Menu digital inclusivo",
-        "description": "Fotos responsivas, áudio descrição e promoções por turno para encantar clientes.",
-        "ctaLabel": "Explorar menu digital",
-        "href": "/menu-digital"
-      },
-      {
-        "title": "Fidelidade omnicanal",
-        "description": "Campanhas segmentadas, cashback e automações para aumentar recorrência.",
-        "ctaLabel": "Criar fidelidade",
-        "href": "/fidelidade"
+        "title": "Implantação com evolução contínua",
+        "description": "A operação começa com fallback seguro e estrutura pronta para integrações como Odoo e persistência com Supabase."
       }
     ]
   },
   "testimonials": {
-    "title": "O que nossos clientes dizem",
+    "title": "Prova social com foco em resultado operacional",
     "quotes": [
       {
-        "text": "O Boteco Pro revolucionou a gestão do meu bar. Recomendo!",
-        "author": "João Silva, Bar do João"
+        "text": "Antes tínhamos informação espalhada entre caixa, WhatsApp e planilhas. Com o BotecoPro, a equipa ganhou ritmo e a gestão ficou mais previsível.",
+        "author": "Rafaela Costa · Gestora de bar premium"
+      },
+      {
+        "text": "A proposta com integração ao Odoo fez sentido porque precisávamos sair do improviso e ligar operação, financeiro e stock num fluxo só.",
+        "author": "Diego Martins · Operação multicanal"
+      },
+      {
+        "text": "A abordagem da Monynha foi de produto real, não de template. O site comunica melhor o valor e a implantação ficou mais profissional.",
+        "author": "Marcelo Santos · Monynha Softwares"
       }
     ]
   },
   "faq": {
-    "title": "Perguntas Frequentes",
+    "title": "Perguntas frequentes",
     "items": [
       {
-        "question": "O menu digital se integra ao meu PDV?",
-        "answer": "Sim. O Boteco Pro conecta cardápio, pedidos e pagamentos para atualizar estoque e relatórios automaticamente."
+        "question": "O BotecoPro serve apenas para bares?",
+        "answer": "Não. A solução foi posicionada para bares, restaurantes e operações de atendimento que precisam de mais controlo entre frente de loja e retaguarda."
       },
       {
-        "question": "Consigo controlar fornecedores e eventos no mesmo painel?",
-        "answer": "Você gerencia cotações, entregas, agenda de eventos e equipe em fluxos colaborativos dentro da plataforma."
+        "question": "A integração com Odoo já está pronta?",
+        "answer": "O frontend já foi preparado com configuração por ambiente, serviços, hooks e fallback de desenvolvimento. A ativação da API pode ser feita assim que o backend estiver disponível."
       },
       {
-        "question": "Existe programa de fidelidade pronto para usar?",
-        "answer": "Sim. Crie regras de pontos, cashback ou selos com notificações automáticas e métricas de retenção."
-      }
-    ]
-  },
-  "ecosystemCta": {
-    "title": "Conecte tecnologia e hospitalidade",
-    "description": "Fale com o time Boteco Pro para criar jornadas digitais que encantam clientes do primeiro contato ao pós-venda.",
-    "actions": [
-      {
-        "label": "Falar com especialistas",
-        "href": "/contato",
-        "variant": "default"
-      },
-      {
-        "label": "Explorar integrações",
-        "href": "/integracoes",
-        "variant": "outline"
+        "question": "Como os leads e formulários são persistidos hoje?",
+        "answer": "O projeto prioriza Supabase quando configurado, aceita webhook opcional e mantém fallback local seguro para desenvolvimento e demonstração."
       }
     ]
   },
   "finalCta": {
-    "title": "Pronto para transformar seu negócio?",
-    "button": "Fale Conosco"
+    "title": "Leve o BotecoPro para uma operação mais previsível, vendável e escalável.",
+    "description": "Converse com Marcelo Santos e o time da Monynha Softwares para desenhar a implantação, validar a integração com Odoo e priorizar os próximos passos do produto.",
+    "primaryButton": "Experimente grátis",
+    "secondaryButton": "Ver integração com Odoo"
   }
 }

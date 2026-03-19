@@ -19,11 +19,8 @@ import {
 } from "@/components/ui/form";
 import { Loader2 } from 'lucide-react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import {
-  CONTACT_REQUESTS_QUERY_KEY,
-  createContactRequest,
-  ContactRequestInput,
-} from '@/lib/storage/contactRequests';
+import { CONTACT_REQUESTS_QUERY_KEY, ContactRequestInput } from '@/lib/storage/contactRequests';
+import { submitLeadCapture } from '@/services/lead-capture';
 
 const fallbackValidationMessages = {
   name: {
@@ -146,7 +143,7 @@ const Contact: React.FC = () => {
   const { toast } = useToast();
   const queryClient = useQueryClient();
   const contactMutation = useMutation({
-    mutationFn: async (payload: ContactRequestInput) => createContactRequest(payload),
+    mutationFn: async (payload: ContactRequestInput) => submitLeadCapture(payload),
     onSuccess: async () => {
       await queryClient.invalidateQueries({ queryKey: CONTACT_REQUESTS_QUERY_KEY });
     },
@@ -184,12 +181,12 @@ const Contact: React.FC = () => {
   // Função de submissão do formulário
   const onSubmit = async (data: ContactFormValues) => {
     try {
-      await contactMutation.mutateAsync(data);
+      const result = await contactMutation.mutateAsync(data);
       toast({
         title: t('form.successMessage'),
         description: t('form.successDescription', {
           defaultValue: t('form.successMessage'),
-        }),
+        }).replace('{provider}', result.provider),
         variant: "default",
       });
       form.reset();
