@@ -4,14 +4,15 @@ import { FeatureGrid } from '@/components/reactbits';
 const FeaturesSection = () => {
   const { t } = useTranslation('home');
 
-  const features = t('features', { returnObjects: true }) as { title: string; description: string }[];
+  const features = t('benefits.items', { returnObjects: true }) as { title: string; description: string }[];
 
   return (
     <FeatureGrid
-      title={t('featuresTitle', { defaultValue: 'Nossas Funcionalidades' })}
+      title={t('benefits.title')}
       features={features}
       depth="surface"
       columns={3}
+      className="border-y border-boteco-neutral/10"
     />
   );
 };

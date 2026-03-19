@@ -1,8 +1,14 @@
 {
   "footer": {
-    "developedWith": "Developed with technology from",
+    "description": "BotecoPro commercial website by Marcelo Santos / Monynha Softwares, prepared for continuous evolution, integrations, and product-led messaging.",
+    "developedWith": "Built with strong branding, accessibility, and continuous evolution in mind.",
     "monynhaAriaLabel": "Monynha Softwares - opens in new tab",
-    "poweredBy": "Powered by Monynha Softwares",
-    "poweredByAriaLabel": "Powered by Monynha Softwares - opens in new tab"
+    "poweredBy": "Meet Monynha Softwares",
+    "poweredByAriaLabel": "Meet Monynha Softwares - opens in new tab",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "contact": "Talk to a specialist",
+    "integrations": "Odoo integration",
+    "about": "About Monynha"
   }
 }

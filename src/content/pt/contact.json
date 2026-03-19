@@ -12,7 +12,7 @@
     "messagePlaceholder": "Sua mensagem...",
     "submitButton": "Enviar Mensagem",
     "successMessage": "Obrigado! Sua mensagem foi enviada com sucesso.",
-    "successDescription": "Sua mensagem foi recebida e entraremos em contato em breve.",
+    "successDescription": "Sua mensagem foi recebida com sucesso pelo canal {provider}. Entraremos em contacto em breve.",
     "errorMessage": "Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente.",
     "errorDescription": "Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente.",
     "submitting": "Enviando...",

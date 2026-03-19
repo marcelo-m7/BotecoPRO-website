@@ -1,8 +1,14 @@
 {
   "footer": {
-    "developedWith": "Desenvolvido com tecnologia",
+    "description": "Website comercial do BotecoPro, produto de Marcelo Santos / Monynha Softwares, preparado para evolução contínua, integrações e comunicação orientada a produto.",
+    "developedWith": "Construído com foco em branding, acessibilidade e evolução contínua.",
     "monynhaAriaLabel": "Monynha Softwares - abre em nova aba",
-    "poweredBy": "Powered by Monynha Softwares",
-    "poweredByAriaLabel": "Powered by Monynha Softwares - abre em nova aba"
+    "poweredBy": "Conheça a Monynha Softwares",
+    "poweredByAriaLabel": "Conheça a Monynha Softwares - abre em nova aba",
+    "privacy": "Política de Privacidade",
+    "terms": "Termos de Serviço",
+    "contact": "Fale com um especialista",
+    "integrations": "Integração com Odoo",
+    "about": "Sobre a Monynha"
   }
 }

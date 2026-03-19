@@ -3,6 +3,12 @@
     "developedWith": "Desarrollado con tecnología de",
     "monynhaAriaLabel": "Monynha Softwares - se abre en nueva pestaña",
     "poweredBy": "Impulsado por Monynha Softwares",
-    "poweredByAriaLabel": "Impulsado por Monynha Softwares - se abre en nueva pestaña"
+    "poweredByAriaLabel": "Impulsado por Monynha Softwares - se abre en nueva pestaña",
+    "description": "BotecoPro commercial website by Monynha Softwares.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "contact": "Talk to a specialist",
+    "integrations": "Odoo integration",
+    "about": "About Monynha"
   }
 }

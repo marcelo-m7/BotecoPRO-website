@@ -57,13 +57,13 @@ const Header: React.FC = () => {
   const navItems = (navigation.items as NavItem[]) ?? [];
 
   return (
-    <header className="bg-boteco-primary text-boteco-primary-foreground p-4 shadow-md transition-colors duration-300">
+    <header className="sticky top-0 z-40 border-b border-white/10 bg-boteco-primary/95 p-4 text-boteco-primary-foreground shadow-md backdrop-blur transition-colors duration-300">
       <div className="container mx-auto flex justify-between items-center gap-4">
         <Link
           to={`/${currentLocale}`}
           className="text-2xl font-bold transition-colors hover:text-boteco-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-boteco-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-boteco-primary"
         >
-          Boteco Pro
+          BotecoPro <span className="hidden text-sm font-medium text-boteco-tertiary sm:inline">by Monynha</span>
         </Link>
 
         {isMobile ? (
