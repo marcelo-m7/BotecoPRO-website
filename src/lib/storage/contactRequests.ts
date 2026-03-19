@@ -1,4 +1,5 @@
 import { differenceInHours, isAfter, subDays } from 'date-fns';
+import { persistLeadToRemote, trackMarketingEvent } from '@/services/leads';
 
 export type ContactRequestStatus = 'new' | 'contacted' | 'qualified';
 
@@ -210,7 +211,16 @@ export const createContactRequest = async (
   };
 
   const updated = sortRequestsByDate([...existing, newRequest]);
-  await persistRequests(updated);
+  await Promise.allSettled([
+    persistRequests(updated),
+    persistLeadToRemote(payload),
+    trackMarketingEvent({
+      type: 'lead_created',
+      locale: 'unknown',
+      source: 'website-contact-form',
+      metadata: { email: payload.email.trim() },
+    }),
+  ]);
   return newRequest;
 };
 

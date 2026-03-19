@@ -4,13 +4,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Menu } from 'lucide-react';
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import LanguageSwitcher from './LanguageSwitcher';
 import { ThemeToggle } from './ThemeToggle';
@@ -28,102 +22,47 @@ interface MobileNavProps {
 
 const MobileNav: React.FC<MobileNavProps> = ({ onOpenChange, isOpen, currentLocale, items }) => {
   const { t } = useTranslation();
-
-  const getLabel = React.useCallback(
-    (item: BaseNavItem) => item.label[currentLocale] ?? item.label.pt ?? Object.values(item.label)[0],
-    [currentLocale],
-  );
-
-  const getDescription = React.useCallback(
-    (item: BaseNavItem) => item.description?.[currentLocale] ?? item.description?.pt ?? '',
-    [currentLocale],
-  );
-
-  const resolveHref = React.useCallback(
-    (item: BaseNavItem) => {
-      if (!item.href) {
-        return '#';
-      }
-
-      if (item.localeAware === false || item.href.startsWith('http')) {
-        return item.href;
-      }
-
-      const normalized = item.href.startsWith('/') ? item.href : `/${item.href}`;
-      return `/${currentLocale}${normalized}`;
-    },
-    [currentLocale],
-  );
-
-  const handleNavigate = React.useCallback(() => {
-    onOpenChange(false);
-  }, [onOpenChange]);
+  const getLabel = React.useCallback((item: BaseNavItem) => item.label[currentLocale] ?? item.label.pt ?? Object.values(item.label)[0], [currentLocale]);
+  const getDescription = React.useCallback((item: BaseNavItem) => item.description?.[currentLocale] ?? item.description?.pt ?? '', [currentLocale]);
+  const resolveHref = React.useCallback((item: BaseNavItem) => {
+    if (!item.href) return '#';
+    if (item.localeAware === false || item.href.startsWith('http')) return item.href;
+    const normalized = item.href.startsWith('/') ? item.href : `/${item.href}`;
+    return `/${currentLocale}${normalized}`;
+  }, [currentLocale]);
 
   return (
     <Sheet open={isOpen} onOpenChange={onOpenChange}>
       <SheetTrigger asChild>
-        <Button
-          variant="ghost"
-          size="icon"
-          depth="overlay"
-          className="lg:hidden text-boteco-primary-foreground hover:bg-boteco-primary/80 active:scale-98"
-        >
+        <Button variant="ghost" size="icon" depth="overlay" className="lg:hidden text-foreground hover:bg-muted active:scale-98">
           <Menu className="h-6 w-6" />
           <span className="sr-only">{t('openMenu', { defaultValue: 'Abrir menu' })}</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="w-[250px] sm:w-[300px] bg-background flex flex-col transition-colors duration-300">
+      <SheetContent side="left" className="flex w-[280px] flex-col bg-background sm:w-[320px]">
         <SheetHeader className="mb-6">
-          <SheetTitle className="text-2xl font-bold text-boteco-primary">Boteco Pro</SheetTitle>
+          <SheetTitle className="text-left text-2xl font-black text-boteco-primary">BotecoPro</SheetTitle>
+          <p className="text-left text-xs text-muted-foreground">Marcelo Santos · Monynha Softwares</p>
         </SheetHeader>
-        <nav className="flex flex-col flex-grow">
+        <nav className="flex flex-grow flex-col">
           <Accordion type="multiple" className="space-y-2">
-            {items.map((item) =>
-              item.type === 'mega' && item.items?.length ? (
-                <AccordionItem key={item.id} value={item.id} className="border-b border-border/40">
-                  <AccordionTrigger className="text-left text-lg font-medium text-foreground transition-colors hover:text-boteco-primary">
-                    {getLabel(item)}
-                  </AccordionTrigger>
-                  <AccordionContent className="space-y-2 pb-3">
-                    {item.items.map((child) => (
-                      <Link
-                        key={child.id}
-                        to={resolveHref(child)}
-                        onClick={handleNavigate}
-                        className="block rounded-md bg-muted/40 px-3 py-2 transition-colors hover:bg-muted"
-                      >
-                        <span className="block text-sm font-medium text-foreground">{getLabel(child)}</span>
-                        {child.description && (
-                          <span className="block text-xs text-muted-foreground">{getDescription(child)}</span>
-                        )}
-                      </Link>
-                    ))}
-                  </AccordionContent>
-                </AccordionItem>
-              ) : (
-                <Link
-                  key={item.id}
-                  to={resolveHref(item)}
-                  onClick={handleNavigate}
-                  className="block rounded-md px-3 py-2 text-lg font-medium text-foreground transition-colors hover:bg-muted/60 hover:text-boteco-primary"
-                >
-                  {getLabel(item)}
-                </Link>
-              ),
-            )}
+            {items.map((item) => item.type === 'mega' && item.items?.length ? (
+              <AccordionItem key={item.id} value={item.id} className="border-b border-border/40">
+                <AccordionTrigger className="text-left text-lg font-medium text-foreground transition-colors hover:text-boteco-primary">{getLabel(item)}</AccordionTrigger>
+                <AccordionContent className="space-y-2 pb-3">
+                  {item.items.map((child) => <Link key={child.id} to={resolveHref(child)} onClick={() => onOpenChange(false)} className="block rounded-md bg-muted/40 px-3 py-2 transition-colors hover:bg-muted"><span className="block text-sm font-medium text-foreground">{getLabel(child)}</span>{child.description && <span className="block text-xs text-muted-foreground">{getDescription(child)}</span>}</Link>)}
+                </AccordionContent>
+              </AccordionItem>
+            ) : (
+              <Link key={item.id} to={resolveHref(item)} onClick={() => onOpenChange(false)} className="block rounded-md px-3 py-2 text-lg font-medium text-foreground transition-colors hover:bg-muted/60 hover:text-boteco-primary">{getLabel(item)}</Link>
+            ))}
           </Accordion>
         </nav>
-        <div className="flex flex-col space-y-4 mt-auto pb-4">
+        <div className="mt-auto flex flex-col space-y-4 pb-4">
+          <Button asChild className="bg-boteco-primary text-white hover:bg-boteco-primary/90"><Link to={`/${currentLocale}/contato`} onClick={() => onOpenChange(false)}>Fale com um especialista</Link></Button>
           <LanguageSwitcher />
           <ThemeToggle />
-          {hasClerkAuth && (
-            <SignedIn>
-              <div className="flex items-center justify-start">
-                <UserButton afterSignOutUrl="/" />
-                <span className="ml-2 text-foreground">{t('profile', { defaultValue: 'Perfil' })}</span>
-              </div>
-            </SignedIn>
-          )}
+          {hasClerkAuth && <SignedIn><div className="flex items-center justify-start"><UserButton afterSignOutUrl="/" /><span className="ml-2 text-foreground">{t('profile', { defaultValue: 'Perfil' })}</span></div></SignedIn>}
         </div>
       </SheetContent>
     </Sheet>

@@ -6,6 +6,7 @@ import { ThemeToggle } from './ThemeToggle';
 import MobileNav from './MobileNav';
 import { useIsMobile } from '@/hooks/use-mobile';
 import navigation from '@/content/common/navigation.json';
+import { Button } from '@/components/ui/button';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -26,60 +27,32 @@ const Header: React.FC = () => {
   const currentLocale = locale || 'pt';
   const isMobile = useIsMobile();
   const [isMobileNavOpen, setIsMobileNavOpen] = React.useState(false);
-
-  const getLabel = React.useCallback(
-    (item: BaseNavItem) => item.label[currentLocale] ?? item.label.pt ?? Object.values(item.label)[0],
-    [currentLocale],
-  );
-
-  const getDescription = React.useCallback(
-    (item: BaseNavItem) => item.description?.[currentLocale] ?? item.description?.pt ?? '',
-    [currentLocale],
-  );
-
-  const resolveHref = React.useCallback(
-    (item: BaseNavItem) => {
-      if (!item.href) {
-        return '#';
-      }
-
-      if (item.localeAware === false || item.href.startsWith('http')) {
-        return item.href;
-      }
-
-      const normalized = item.href.startsWith('/') ? item.href : `/${item.href}`;
-      return `/${currentLocale}${normalized}`;
-    },
-    [currentLocale],
-  );
-
-  // Navigation items are static from JSON import, no need for useMemo
   const navItems = (navigation.items as NavItem[]) ?? [];
 
+  const getLabel = React.useCallback((item: BaseNavItem) => item.label[currentLocale] ?? item.label.pt ?? Object.values(item.label)[0], [currentLocale]);
+  const getDescription = React.useCallback((item: BaseNavItem) => item.description?.[currentLocale] ?? item.description?.pt ?? '', [currentLocale]);
+  const resolveHref = React.useCallback((item: BaseNavItem) => {
+    if (!item.href) return '#';
+    if (item.localeAware === false || item.href.startsWith('http')) return item.href;
+    const normalized = item.href.startsWith('/') ? item.href : `/${item.href}`;
+    return `/${currentLocale}${normalized}`;
+  }, [currentLocale]);
+
   return (
-    <header className="bg-boteco-primary text-boteco-primary-foreground p-4 shadow-md transition-colors duration-300">
-      <div className="container mx-auto flex justify-between items-center gap-4">
-        <Link
-          to={`/${currentLocale}`}
-          className="text-2xl font-bold transition-colors hover:text-boteco-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-boteco-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-boteco-primary"
-        >
-          Boteco Pro
+    <header className="sticky top-0 z-40 border-b border-border/60 bg-background/90 text-foreground shadow-sm backdrop-blur">
+      <div className="container mx-auto flex items-center justify-between gap-4 px-4 py-3">
+        <Link to={`/${currentLocale}`} className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-boteco-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-background">
+          <div className="flex flex-col">
+            <span className="text-xl font-black tracking-tight text-boteco-primary md:text-2xl">BotecoPro</span>
+            <span className="text-xs font-medium text-muted-foreground">Marcelo Santos · Monynha Softwares</span>
+          </div>
         </Link>
 
         {isMobile ? (
           <div className="flex items-center space-x-2">
             <ThemeToggle />
-            {hasClerkAuth && (
-              <SignedIn>
-                <UserButton afterSignOutUrl="/" />
-              </SignedIn>
-            )}
-            <MobileNav
-              isOpen={isMobileNavOpen}
-              onOpenChange={setIsMobileNavOpen}
-              currentLocale={currentLocale}
-              items={navItems}
-            />
+            {hasClerkAuth && <SignedIn><UserButton afterSignOutUrl="/" /></SignedIn>}
+            <MobileNav isOpen={isMobileNavOpen} onOpenChange={setIsMobileNavOpen} currentLocale={currentLocale} items={navItems} />
           </div>
         ) : (
           <div className="flex items-center gap-4">
@@ -89,30 +62,18 @@ const Header: React.FC = () => {
                   <NavigationMenuItem key={item.id}>
                     {item.type === 'mega' && item.items?.length ? (
                       <>
-                        <NavigationMenuTrigger className={cn(
-                          navigationMenuTriggerStyle(),
-                          'bg-transparent text-boteco-primary-foreground transition-colors hover:text-boteco-secondary focus-visible:ring-boteco-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-boteco-primary',
-                        )}>
+                        <NavigationMenuTrigger className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-foreground hover:text-boteco-primary focus-visible:ring-boteco-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-background')}>
                           {getLabel(item)}
                         </NavigationMenuTrigger>
                         <NavigationMenuContent className="p-4">
                           <div className="grid gap-4 md:w-[500px] lg:w-[720px] md:grid-cols-2">
                             {item.items.map((child) => (
                               <NavigationMenuLink asChild key={child.id}>
-                                <Link
-                                  to={resolveHref(child)}
-                                  className="focus-visible:outline-none"
-                                >
+                                <Link to={resolveHref(child)} className="focus-visible:outline-none">
                                   <Card depth={child.depth === 'surface' ? 'surface' : 'overlay'} className="h-full transition-transform duration-200 hover:-translate-y-1">
                                     <CardHeader>
-                                      <CardTitle className="text-lg font-semibold text-boteco-primary">
-                                        {getLabel(child)}
-                                      </CardTitle>
-                                      {child.description && (
-                                        <CardDescription className="text-sm text-boteco-neutral/80">
-                                          {getDescription(child)}
-                                        </CardDescription>
-                                      )}
+                                      <CardTitle className="text-lg font-semibold text-boteco-primary">{getLabel(child)}</CardTitle>
+                                      {child.description && <CardDescription className="text-sm text-boteco-neutral/80">{getDescription(child)}</CardDescription>}
                                     </CardHeader>
                                   </Card>
                                 </Link>
@@ -123,10 +84,7 @@ const Header: React.FC = () => {
                       </>
                     ) : (
                       <NavigationMenuLink asChild>
-                        <Link
-                          to={resolveHref(item)}
-                          className="rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-boteco-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-boteco-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-boteco-primary"
-                        >
+                        <Link to={resolveHref(item)} className="rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-boteco-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-boteco-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-background">
                           {getLabel(item)}
                         </Link>
                       </NavigationMenuLink>
@@ -136,13 +94,10 @@ const Header: React.FC = () => {
               </NavigationMenuList>
               <NavigationMenuIndicator />
             </NavigationMenu>
+            <Button asChild className="bg-boteco-primary text-white hover:bg-boteco-primary/90"><Link to={`/${currentLocale}/contato`}>Fale com um especialista</Link></Button>
             <LanguageSwitcher />
             <ThemeToggle />
-            {hasClerkAuth && (
-              <SignedIn>
-                <UserButton afterSignOutUrl="/" />
-              </SignedIn>
-            )}
+            {hasClerkAuth && <SignedIn><UserButton afterSignOutUrl="/" /></SignedIn>}
           </div>
         )}
       </div>

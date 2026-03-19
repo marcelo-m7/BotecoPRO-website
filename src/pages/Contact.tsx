@@ -210,6 +210,11 @@ const Contact: React.FC = () => {
 
   const pageTitle = t('title');
   const pageDescription = t('description');
+  const quickActions = [
+    { title: 'Fale com um especialista', description: 'Mapeamos operação, stock, POS e integração com Odoo antes da proposta.', href: 'mailto:comercial@monynha.com' },
+    { title: 'Ver demonstração', description: 'Receba um walkthrough comercial focado em bares, restaurantes e multiunidade.', href: 'https://wa.me/244938793152?text=Quero%20uma%20demonstra%C3%A7%C3%A3o%20do%20BotecoPro' },
+    { title: 'Experimentar operação piloto', description: 'Ativamos um fluxo inicial com fallback seguro para evoluir com backend real.', href: 'mailto:produto@monynha.com?subject=Piloto%20BotecoPro' },
+  ];
 
   return (
     <>
@@ -220,7 +225,22 @@ const Contact: React.FC = () => {
         ogDescription={pageDescription}
         locale={i18n.language}
       />
-      <div className="container mx-auto px-4 py-12 max-w-3xl">
+      <div className="container mx-auto grid max-w-6xl gap-8 px-4 py-12 lg:grid-cols-[0.9fr_1.1fr]">
+        <section className="space-y-6" aria-labelledby="contact-heading">
+          <div className="space-y-3">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-boteco-primary">Monynha Softwares</p>
+            <h1 id="contact-heading" className="text-4xl font-black tracking-tight text-boteco-primary">{t('title')}</h1>
+            <p className="text-lg text-muted-foreground">{t('description')}</p>
+          </div>
+          <div className="grid gap-4">
+            {quickActions.map((action) => (
+              <a key={action.title} href={action.href} target={action.href.startsWith('http') ? '_blank' : undefined} rel={action.href.startsWith('http') ? 'noreferrer' : undefined} className="rounded-2xl border border-border/60 bg-card/80 p-5 transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-boteco-secondary">
+                <p className="font-semibold text-boteco-primary">{action.title}</p>
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">{action.description}</p>
+              </a>
+            ))}
+          </div>
+        </section>
         <Card
           depth="elevated"
           className="transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
