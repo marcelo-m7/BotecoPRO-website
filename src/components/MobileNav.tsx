@@ -42,7 +42,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ onOpenChange, isOpen, currentLoca
   const resolveHref = React.useCallback(
     (item: BaseNavItem) => {
       if (!item.href) {
-        return '#';
+        return `/${currentLocale}`;
       }
 
       if (item.localeAware === false || item.href.startsWith('http')) {

@@ -40,7 +40,7 @@ const Header: React.FC = () => {
   const resolveHref = React.useCallback(
     (item: BaseNavItem) => {
       if (!item.href) {
-        return '#';
+        return `/${currentLocale}`;
       }
 
       if (item.localeAware === false || item.href.startsWith('http')) {
@@ -63,7 +63,7 @@ const Header: React.FC = () => {
           to={`/${currentLocale}`}
           className="text-2xl font-bold transition-colors hover:text-boteco-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-boteco-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-boteco-primary"
         >
-          BotecoPro <span className="hidden text-sm font-medium text-boteco-tertiary sm:inline">by Monynha</span>
+          BotecoPro <span className="hidden text-sm font-medium text-boteco-tertiary sm:inline">by Open2 Technology</span>
         </Link>
 
         {isMobile ? (

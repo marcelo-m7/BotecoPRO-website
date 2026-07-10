@@ -10,6 +10,7 @@ type HeroAction = {
   href: string;
   'aria-label'?: string;
   external?: boolean;
+  newTab?: boolean;
 };
 
 type HeroProps = {
@@ -36,8 +37,8 @@ const Hero = ({
       return (
         <a
           href={actionToRender.href}
-          target="_blank"
-          rel="noreferrer noopener"
+          target={actionToRender.newTab === false ? undefined : '_blank'}
+          rel={actionToRender.newTab === false ? undefined : 'noopener noreferrer'}
           aria-label={actionToRender['aria-label'] ?? actionToRender.label}
         >
           {children}

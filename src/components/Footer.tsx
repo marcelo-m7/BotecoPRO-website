@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { externalLinks } from '@/config/external-links';
 
 const Footer: React.FC = () => {
   const { t } = useTranslation('common');
@@ -15,7 +16,7 @@ const Footer: React.FC = () => {
       <div className="container grid gap-8 md:grid-cols-[1.1fr_0.9fr] md:items-end">
         <div className="space-y-4">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-boteco-tertiary">Monynha Softwares</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-boteco-tertiary">Open2 Technology</p>
             <h2 className="mt-2 text-2xl font-bold">BotecoPro para operações de bar e restaurante.</h2>
           </div>
           <p className="max-w-2xl text-sm leading-6 text-boteco-primary-foreground/80">
@@ -25,7 +26,7 @@ const Footer: React.FC = () => {
 
         <div className="grid gap-5 text-sm sm:grid-cols-2">
           <div className="space-y-3">
-            <p className="font-semibold">Links rápidos</p>
+            <p className="font-semibold">{t('footer.quickLinks')}</p>
             <div className="flex flex-col gap-2">
               <Link to={getLocalizedPath('/contato')} className="transition-colors hover:text-boteco-tertiary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-boteco-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-boteco-primary">{t('footer.contact')}</Link>
               <Link to={getLocalizedPath('/integracoes')} className="transition-colors hover:text-boteco-tertiary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-boteco-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-boteco-primary">{t('footer.integrations')}</Link>
@@ -33,19 +34,22 @@ const Footer: React.FC = () => {
             </div>
           </div>
           <div className="space-y-3">
-            <p className="font-semibold">Compliance</p>
+            <p className="font-semibold">{t('footer.compliance')}</p>
             <div className="flex flex-col gap-2">
               <Link to={getLocalizedPath('/legal/privacidade')} className="transition-colors hover:text-boteco-tertiary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-boteco-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-boteco-primary">{t('footer.privacy')}</Link>
               <Link to={getLocalizedPath('/legal/termos')} className="transition-colors hover:text-boteco-tertiary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-boteco-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-boteco-primary">{t('footer.terms')}</Link>
-              <a href="https://monynha.com" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-boteco-tertiary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-boteco-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-boteco-primary" aria-label={t('footer.monynhaAriaLabel')}>
+              <a href={externalLinks.company} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-boteco-tertiary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-boteco-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-boteco-primary" aria-label={t('footer.monynhaAriaLabel')}>
                 {t('footer.poweredBy')}
+              </a>
+              <a href={externalLinks.github} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-boteco-tertiary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-boteco-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-boteco-primary" aria-label={t('footer.githubAriaLabel')}>
+                {t('footer.github')}
               </a>
             </div>
           </div>
         </div>
       </div>
       <div className="container mt-8 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-boteco-primary-foreground/70 md:flex-row md:items-center md:justify-between">
-        <p>&copy; {currentYear} BotecoPro · Marcelo Santos / Monynha Softwares.</p>
+        <p>&copy; {currentYear} BotecoPro · Open2 Technology.</p>
         <p>{t('footer.developedWith')}</p>
       </div>
     </footer>

@@ -5,6 +5,7 @@ import { Hero } from '@/components/reactbits';
 import { AnimatedItem } from '@/components/reactbits';
 import { Card, CardContent } from '@/components/ui/card';
 import { useOdooOverview } from '@/hooks/use-odoo-overview';
+import { externalLinks } from '@/config/external-links';
 
 const HeroSection = () => {
   const { t } = useTranslation('home');
@@ -29,13 +30,15 @@ const HeroSection = () => {
         action={{ label: t('hero.cta'), href: getLocalizedPath('/contato') }}
         secondaryAction={{
           label: t('hero.demoCta'),
-          href: getLocalizedPath('/integracoes'),
+          href: externalLinks.demo,
           'aria-label': t('hero.demoCtaAria'),
+          external: true,
+          newTab: false,
         }}
         depth="overlay"
-        className="bg-transparent py-10 md:py-16 lg:py-20"
+        className="bg-transparent py-8 md:py-12 lg:py-16"
       />
-      <div className="container grid gap-6 px-4 pb-16 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
+      <div className="container grid gap-5 px-4 pb-12 md:grid-cols-2 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
         <AnimatedItem>
           <div className="grid gap-3 sm:grid-cols-3">
             {heroMetrics.map((metric) => (
@@ -52,9 +55,9 @@ const HeroSection = () => {
           <Card depth="overlay" className="border border-white/10 bg-white/10 text-white shadow-2xl">
             <CardContent className="space-y-5 p-6">
               <div className="space-y-2">
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/70">{t('hero.integrationLabel')}</p>
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/90">{t('hero.integrationLabel')}</p>
                 <h2 className="text-2xl font-semibold">{data?.syncLabel ?? t('hero.integrationFallbackTitle')}</h2>
-                <p className="text-sm leading-6 text-white/80">{data?.summary ?? t('hero.integrationFallbackDescription')}</p>
+                <p className="text-sm leading-6 text-white/90">{data?.summary ?? t('hero.integrationFallbackDescription')}</p>
               </div>
               <ul className="space-y-3">
                 {heroHighlights.map((item) => (
