@@ -3,3 +3,4 @@ allowBuilds:
   '@swc/core': true
   esbuild: true
   msw: true
+  workerd: true
