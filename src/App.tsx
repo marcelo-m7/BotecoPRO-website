@@ -2,7 +2,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate as Redirect } from "react-router-dom"; // Renomear Navigate para Redirect
+import { useEffect } from "react";
+import { BrowserRouter, Routes, Route, Navigate as Redirect, useLocation } from "react-router-dom"; // Renomear Navigate para Redirect
 import LocaleWrapper from "./components/LocaleWrapper";
 import Home from "./pages/Home"; // Renamed from Index
 import NotFound from "./pages/NotFound";
@@ -23,12 +24,23 @@ import { SignedIn, SignedOut, RedirectToSignIn } from "@clerk/clerk-react";
 
 const queryClient = new QueryClient();
 
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           {/* Redirect root to default locale (pt) */}
           <Route path="/" element={<Redirect to="/pt" />} />
