@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "boteco-pro-website",
+  "name": "botecopro-website",
   "compatibility_date": "2026-10-12",
   "assets": {
     "directory": "./dist",
